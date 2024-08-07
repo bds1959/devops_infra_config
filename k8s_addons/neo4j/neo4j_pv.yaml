@@ -1,0 +1,19 @@
+kind: PersistentVolume
+apiVersion: v1
+
+metadata:
+  name: neo4j-graphs-pv
+
+spec:
+  capacity:
+    storage: 5Gi
+
+  accessModes:
+    - ReadWriteMany
+
+  persistentVolumeReclaimPolicy: Retain
+
+  storageClassName: manual
+
+  hostPath:
+    path: "/titan-data/NeoDB"

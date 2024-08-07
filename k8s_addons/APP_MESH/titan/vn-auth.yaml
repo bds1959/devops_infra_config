@@ -1,0 +1,73 @@
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualNode
+metadata:
+  name: auth-tst
+  namespace: gcp-collector-ns
+meshName: titan
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/instance: auth-appmesh-tst            
+  listeners:
+    - portMapping:
+        port: 5000
+        protocol: http
+#      healthCheck:
+#        protocol: http
+#        path: '/'
+#        healthyThreshold: 2
+#        unhealthyThreshold: 2
+#        timeoutMillis: 2000
+#        intervalMillis: 5000
+#  backends:
+#    - virtualService:
+#        virtualServiceRef:
+#          name: rds
+#    - virtualService:
+#        virtualServiceRef:
+#          name: encs
+  serviceDiscovery:
+    dns:
+      hostname: auth-appmesh-tst.gcp-collector-ns.svc.cluster.local 
+  logging:
+    accessLog:
+      file:
+        path: /dev/stdout
+---
+meshName: titan
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualRouter
+metadata:
+  name: auth-tst-router
+  namespace: gcp-collector-ns
+spec:
+  listeners:
+    - portMapping:
+        port: 5007
+        protocol: http
+  routes:
+    - name: auth-tst-route
+      httpRoute:
+        match:
+          prefix: /
+        action:
+          weightedTargets:
+            - virtualNodeRef:
+                name: auth-tst
+              weight: 100
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualService
+metadata:
+  name: auth-tst
+  namespace: gcp-collector-ns
+meshName: titan
+spec:
+#  awsName: auth-appmesh-tst.gcp-collector-ns.svc.cluster.local
+  provider:
+    virtualRouter:
+      virtualRouterRef:
+        name: auth-tst-router
+---
+

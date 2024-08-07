@@ -1,0 +1,27 @@
+- hosts: k8s-qa-cluster
+  become: yes
+  tasks:
+  - name: Install cifs-utils and jq packages
+    apt:
+      name:
+        - cifs-utils
+        - jq
+      state: present
+
+  - name: Create cifs volume plugin directory and download cifs binary
+    shell: |
+      VOLUME_PLUGIN_DIR="/usr/libexec/kubernetes/kubelet-plugins/volume/exec"
+      mkdir -p "$VOLUME_PLUGIN_DIR/fstab~cifs"
+      cd "$VOLUME_PLUGIN_DIR/fstab~cifs"
+      curl -L -O https://raw.githubusercontent.com/fstab/cifs/master/cifs
+      chmod 755 cifs
+
+  - name: Check if cifs installation is successful
+    shell: |
+      VOLUME_PLUGIN_DIR="/usr/libexec/kubernetes/kubelet-plugins/volume/exec"
+      $VOLUME_PLUGIN_DIR/fstab~cifs/cifs init
+    register: cifs_init_output
+
+  - name: Display cifs init output
+    debug:
+      var: cifs_init_output.stdout_lines

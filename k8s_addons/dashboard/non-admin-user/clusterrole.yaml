@@ -1,0 +1,8 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: kube-dashboard-user
+rules:
+- apiGroups: ["", "extensions", "apps", "batch"]
+  resources: ["deployments", "pods", "pods/log", "services", "namespaces"]
+  verbs: ["get", "list", "watch"]

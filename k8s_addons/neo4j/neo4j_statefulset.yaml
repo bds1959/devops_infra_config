@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: neo4j-graphs-statefulset
+
+spec:
+  selector:
+    matchLabels:
+      app: neo4j-graphs
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: neo4j-graphs
+    spec:
+      imagePullSecrets:
+      - name: neo4j-secret
+      containers:
+      - name: neo4j
+        image: ghcr.io/banyandata-cloud/neo4j-graphs:2
+        ports:
+        - containerPort: 7474
+        - containerPort: 7473
+        - containerPort: 7687
+        volumeMounts:
+        - name: neo4j-data
+          mountPath: /data
+      volumes:
+      - name: neo4j-data
+        persistentVolumeClaim:
+          claimName: neo4j-graphs-pvc
+  serviceName: ''

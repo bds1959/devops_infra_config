@@ -1,0 +1,22 @@
+---
+#AUTH
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: kubernetes-dashboard-vs
+  namespace: kubernetes-dashboard
+spec:
+  hosts:
+    - "dev-dashboard.banyancloud.io"
+  gateways:
+    - dev-dashboard-gateway
+  tls:
+  - match:
+    - port: 443
+      sniHosts:
+      - dev-dashboard.banyancloud.io
+    route:
+    - destination:
+        host: kubernetes-dashboard.kubernetes-dashboard.svc.cluster.local
+        port:
+          number: 443

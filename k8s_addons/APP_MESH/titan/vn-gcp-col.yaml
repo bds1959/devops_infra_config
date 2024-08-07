@@ -1,0 +1,46 @@
+---
+meshName: titan
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualNode
+metadata:
+  name: gcp-collector
+  namespace: gcp-collector-ns
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: gcp-collector
+  listeners:
+    - portMapping:
+        port: 5007
+        protocol: http
+  backendDefaults:
+    clientPolicy: {}
+  backends:
+    - virtualService:
+        VirtualServiceRef:
+          arn: arn:aws:appmesh:us-east-2:204368376189:mesh/titan/virtualService/auth-tst.gcp-collector-ns
+#    - virtualService:
+#        virtualServiceRef:
+#          name: encs
+  serviceDiscovery:
+    dns:
+      hostname: gcp-collector.gcp-collector-ns.svc.cluster.local
+  logging:
+    accessLog:
+      file:
+        path: /dev/stdout
+---
+meshName: titan
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualService
+metadata:
+  name: gcp-collector
+  namespace: gcp-collector-ns
+spec:
+#  awsName: gcp-collector.gcp-collector-ns.svc.cluster.local
+  provider:
+    virtualNode:
+      virtualNodeRef:
+        name: gcp-collector
+---
+

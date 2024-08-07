@@ -1,0 +1,52 @@
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualNode
+metadata:
+  name: rds
+  namespace: rds-ns
+meshName: titan
+spec:
+#  podSelector:
+#    matchLabels:
+#      app.kubernetes.io/name: titan-ui
+  listeners:
+    - portMapping:
+        port: 5432
+        protocol: tcp
+      timeout:
+        tcp:
+          idle:
+            unit: s
+            value: 30
+          perRequest:
+            unit: s
+            value: 30
+#  backends:
+#    - virtualService:
+#        virtualServiceRef:
+#          name: recs-gcp
+#    - virtualService:
+#        virtualServiceRef:
+#          name: encs
+  serviceDiscovery:
+    dns:
+      hostname: bdopcfl.crhq8x97nooy.us-east-2.rds.amazonaws.com
+  logging:
+    accessLog:
+      file:
+        path: /dev/stdout
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualService
+metadata:
+  name: rds
+  namespace: rds-ns
+meshName: titan
+spec:
+  awsName: bdopcfl.crhq8x97nooy.us-east-2.rds.amazonaws.com
+  provider:
+    virtualNode:
+      virtualNodeRef:
+        name: rds
+---
+

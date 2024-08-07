@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gcp-collector-ns
+  labels:
+    mesh: test-mesh
+    gateway: ing-gw-test
+    appmesh.k8s.aws/sidecarInjectorWebhook: enabled
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: Mesh
+metadata:
+  name: test-mesh
+spec:
+  namespaceSelector:
+    matchLabels:
+      mesh: test-mesh
+---
+

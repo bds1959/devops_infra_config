@@ -1,0 +1,43 @@
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualNode
+metadata:
+  name: titan-ui
+  namespace: titan-ui-ns
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: titan-ui
+  listeners:
+    - portMapping:
+        port: 80
+        protocol: http
+  backends:
+    - virtualService:
+        virtualServiceRef:
+          name: auth
+          namespace: auth-ns
+#    - virtualService:
+#        virtualServiceRef:
+#          name: encs
+  serviceDiscovery:
+    dns:
+      hostname: titan-ui.titan-ui-ns.svc.cluster.local
+  logging:
+    accessLog:
+      file:
+        path: /dev/stdout
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualService
+metadata:
+  name: titan-ui
+  namespace: titan-ui-ns
+spec:
+  awsName: titan-ui.titan-ui-ns.svc.cluster.local
+  provider:
+    virtualNode:
+      virtualNodeRef:
+        name: titan-ui
+---
+

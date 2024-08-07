@@ -1,0 +1,77 @@
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualGateway
+metadata:
+  name: ing-gw-test
+  namespace: gcp-collector-ns
+spec:
+  namespaceSelector:
+    matchLabels:
+      gateway: ing-gw-test
+  podSelector:
+    matchLabels:
+      app: ing-gw-test
+  listeners:
+    - portMapping:
+        port: 8088
+        protocol: http
+  logging:
+    accessLog:
+      file:
+        path: /dev/stdout
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: GatewayRoute
+metadata:
+  name: titan-gate-route
+  namespace: gcp-collector-ns
+spec:
+  httpRoute:
+    match:
+      prefix: "/"
+    action:
+      target:
+        virtualService:
+          virtualServiceRef:
+            name: gcp-collector
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ing-gw-test
+  namespace: gcp-collector-ns
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8088
+      name: http
+  selector:
+    app: ing-gw-test
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ing-gw-test
+  namespace: gcp-collector-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ing-gw-test
+  template:
+    metadata:
+      labels:
+        app: ing-gw-test
+    spec:
+      serviceAccountName: envoy-proxy
+      securityContext:
+        fsGroup: 65534
+      containers:
+        - name: envoy
+          image: 840364872350.dkr.ecr.us-west-2.amazonaws.com/aws-appmesh-envoy:v1.17.2.0
+          ports:
+            - containerPort: 8088
+---
