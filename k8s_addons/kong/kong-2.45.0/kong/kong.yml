@@ -1,0 +1,188 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+  - name: bc-download
+    url: https://appqa.banyancloud.io:31432/bcdl
+#    url: http://appqa.banyancloud.io:31432
+    routes:
+      - name: Version-1
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1
+          - /compliancy-report
+        strip_path: false
+      - name: Version-2
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v2
+          - /bc-download/api/v1/demo-api
+        strip_path: false
+      - name: Executive-PDF-Report-Local
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - ~/bc-download/(.*)
+
+        strip_path: false
+    plugins:
+        - name: basic-auth
+        #  consumer: bc-sujay
+        #  service: bc-download
+          config:
+            hide_credentials: true
+
+#        - name: cors
+#          config:
+#            origins:
+#              - https://appqa.banyancloud.io/
+#            methods:
+#              - GET
+#              - POST
+#            headers:
+#              - Accept
+#              - Accept-Version
+#              - Content-Length
+#              - Content-MD5
+#              - Content-Type
+#              - Date
+#              - X-Auth-Token
+#            exposed_headers:
+#              - X-Auth-Token
+#            credentials: true
+#            max_age: 3600
+
+        - name: rate-limiting
+          config:
+            second: 5
+            hour: 10000
+            policy: local
+
+        - name: response-ratelimiting
+          config:
+            limits:
+              requests_per_minute:
+                minute: 10
+            policy: local
+
+  - name: bc-collector-service
+    url: https://appqa.banyancloud.io:31432/bcol/api/v1/flat-file-upload-api
+
+    connect_timeout: 300000  #5 min
+    read_timeout: 300000     #5 min
+    write_timeout: 300000    #5 min
+
+    routes:
+      - name: Upload-Api
+        service: bc-collector-service
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1/s3-upload
+        strip_path: true
+
+  - name: kube-collector-service
+    url: https://appqa.banyancloud.io:31432/kubec
+    routes:
+      - name: K8S-Queue-Col-Get-Api
+        service: kube-collector-service
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1/lmos-queue-collection-data-by-master-id
+        strip_path: false
+
+  - name: oracle-collector-service
+    url: https://appqa.banyancloud.io:31432/dcoracle/api/v1/master-queue-objects
+    routes:
+      - name: Oracle-Queue-Col-Get-Api
+        service: oracle-collector-service
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1/oracle/list-lmos-event
+        strip_path: true
+
+  - name: pgsql-collector-service
+    url: https://appqa.banyancloud.io:31432/dcpgsql/api/v1/master-queue-objects
+    routes:
+      - name: PgSQL-Queue-Col-Get-Api
+        service: pgsql-collector-service
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1/pgsql/list-lmos-event
+        strip_path: true
+
+  - name: mssql-collector-service
+    url: https://appqa.banyancloud.io:31432/dcmssql/api/v1/master-queue-objects
+    routes:
+      - name: MSSQL-Queue-Col-Get-Api
+        service: mssql-collector-service
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1/mssql/list-lmos-event
+        strip_path: true
+
+  - name: mysql-collector-service
+    url: https://appqa.banyancloud.io:31432/dcmysql/api/v1/master-queue-objects
+    routes:
+      - name: MySQL-Queue-Col-Get-Api
+        service: mysql-collector-service
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1/mysql/list-lmos-event
+        strip_path: true
+
+plugins:
+    - name: basic-auth
+#      consumer: bc-client
+      config:
+        hide_credentials: true
+
+    - name: cors
+      config:
+        origins:
+          - https://appqa.banyancloud.io/
+        methods:
+          - GET
+          - POST
+        headers:
+          - Accept
+          - Accept-Version
+          - Content-Length
+          - Content-MD5
+          - Content-Type
+          - Date
+          - X-Auth-Token
+        exposed_headers:
+          - X-Auth-Token
+        credentials: true
+        max_age: 3600
+
+    - name: rate-limiting
+      config:
+        second: 5
+        hour: 10000
+        policy: local
+
+    - name: response-ratelimiting
+      config:
+        limits:
+          requests_per_minute:
+            minute: 10
+        policy: local
+
+consumers:
+  - username: bc-sujay
+    basicauth_credentials:
+      - username: sujay
+        password: secret123
+  - username: bc-client
+    basicauth_credentials:
+      - username: Client
+        password: Client-Password-54321
