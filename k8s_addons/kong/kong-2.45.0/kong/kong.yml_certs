@@ -1,0 +1,294 @@
+_format_version: "3.0"
+_transform: true
+
+certificates:
+  - cert: |
+      -----BEGIN CERTIFICATE-----
+      MIIGOzCCBSOgAwIBAgIRAKW+OPk4t88oTGdjPlLVKXMwDQYJKoZIhvcNAQELBQAw
+      gY8xCzAJBgNVBAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAO
+      BgNVBAcTB1NhbGZvcmQxGDAWBgNVBAoTD1NlY3RpZ28gTGltaXRlZDE3MDUGA1UE
+      AxMuU2VjdGlnbyBSU0EgRG9tYWluIFZhbGlkYXRpb24gU2VjdXJlIFNlcnZlciBD
+      QTAeFw0yNDA0MTAwMDAwMDBaFw0yNTA0MTQyMzU5NTlaMBsxGTAXBgNVBAMMECou
+      YmFueWFuY2xvdWQuaW8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3
+      fNQ+eIieYhAVEC+voVa6HeG32WmvqOaWs7C9YWtvVJi9xOPmN6Ofah48koJMQAkC
+      58J7dWKyOtTszHCezTvrbrs2KZgfG7AjQfw2bf5PzhqsggHoaL6DjUB26xarEvz0
+      dbN0vMAybAyk7aVYEEjMLcYMvHHRe8EIBJ11HlfqIEcRMYj9KIQP7a99vcIwPVvv
+      Y7EWXPesrAksqgTDWok6AXX70wx2vJO/5O6vxFuBdRmt3MT9GIXCImFNiLGmGRO+
+      tdzeqg0Q+dOu4EsfeilpsorANISh6nJ+2aI5ny6GpkEKK0KQ+nceguq5+0IA7Tx+
+      0XtiMp8Ecg3iAZksYzlxAgMBAAGjggMDMIIC/zAfBgNVHSMEGDAWgBSNjF7EVK2K
+      4Xfpm/mbBeG4AY1h4TAdBgNVHQ4EFgQUAdLLF24R8HY0zEvESCCyy4Wbw1gwDgYD
+      VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+      CCsGAQUFBwMCMEkGA1UdIARCMEAwNAYLKwYBBAGyMQECAgcwJTAjBggrBgEFBQcC
+      ARYXaHR0cHM6Ly9zZWN0aWdvLmNvbS9DUFMwCAYGZ4EMAQIBMIGEBggrBgEFBQcB
+      AQR4MHYwTwYIKwYBBQUHMAKGQ2h0dHA6Ly9jcnQuc2VjdGlnby5jb20vU2VjdGln
+      b1JTQURvbWFpblZhbGlkYXRpb25TZWN1cmVTZXJ2ZXJDQS5jcnQwIwYIKwYBBQUH
+      MAGGF2h0dHA6Ly9vY3NwLnNlY3RpZ28uY29tMCsGA1UdEQQkMCKCECouYmFueWFu
+      Y2xvdWQuaW+CDmJhbnlhbmNsb3VkLmlvMIIBfwYKKwYBBAHWeQIEAgSCAW8EggFr
+      AWkAdgDPEVbu1S58r/OHW9lpLpvpGnFnSrAX7KwB0lt3zsw7CAAAAY7GTubpAAAE
+      AwBHMEUCIQDm5755yQx0yYPKBRo5oRFGf940Srrkfzg8NYJnpcdiLAIgEDJcYpMo
+      oNsq3/536aOOSSfPcGmSLsn37XUx6h64YmcAdgCi4wrkRe+9rZt+OO1HZ3dT14Jb
+      hJTXK14bLMS5UKRH5wAAAY7GTuZ3AAAEAwBHMEUCIHyuAb+sgnRaDpENVVEpdHze
+      kMGGujRmzKIzYmNHuYR2AiEA0yf0FkvAWtu+KzSUHnTOdMEGZlrHPPxefrWlExeb
+      7rMAdwBOdaMnXJoQwzhbbNTfP1LrHfDgjhuNacCx+mSxYpo53wAAAY7GTuZ8AAAE
+      AwBIMEYCIQD0PILbPeLZuKnO4qd6azFahXiXaK9bcOrJ9DdEA1zubAIhAJhkFDnP
+      Mj7y653raNDhxpdYG5SvFYoERfgjvLm7SimIMA0GCSqGSIb3DQEBCwUAA4IBAQBU
+      XJly6MZFRjAEBe3Z654YKd2gp8yInO3cZBppcPPGWavXnPKLuOTfGXuL29sbTtC9
+      /sngzTBpBYiUQdAzruCUpsZ2AzoPbkQc7Xh13PVaCwCv0oEJEzQImlDFTJL/WuUh
+      618bDNR3v26ZGPvRFFQ+8BW2m43Gc0VU0pYGfwp7wVrybSbgtx7tlpEg91Au7xvN
+      ol2sWdy0sqYIYqAPIf8VkX9fPXFsZQHP2sAPZNgRckWYHviYTVqfo8D5CS3zhoyz
+      nOL0DJsKAqv1w5NattlVxywKts2OC/M4XJ00k21bDnX5jmy58yk3plcrBm+rNHh/
+      RxgrM+2TFDWEj3h1KGfo
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      MIIGEzCCA/ugAwIBAgIQfVtRJrR2uhHbdBYLvFMNpzANBgkqhkiG9w0BAQwFADCB
+      iDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0pl
+      cnNleSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5ldHdvcmsxLjAsBgNV
+      BAMTJVVTRVJUcnVzdCBSU0EgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMTgx
+      MTAyMDAwMDAwWhcNMzAxMjMxMjM1OTU5WjCBjzELMAkGA1UEBhMCR0IxGzAZBgNV
+      BAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEYMBYGA1UE
+      ChMPU2VjdGlnbyBMaW1pdGVkMTcwNQYDVQQDEy5TZWN0aWdvIFJTQSBEb21haW4g
+      VmFsaWRhdGlvbiBTZWN1cmUgU2VydmVyIENBMIIBIjANBgkqhkiG9w0BAQEFAAOC
+      AQ8AMIIBCgKCAQEA1nMz1tc8INAA0hdFuNY+B6I/x0HuMjDJsGz99J/LEpgPLT+N
+      TQEMgg8Xf2Iu6bhIefsWg06t1zIlk7cHv7lQP6lMw0Aq6Tn/2YHKHxYyQdqAJrkj
+      eocgHuP/IJo8lURvh3UGkEC0MpMWCRAIIz7S3YcPb11RFGoKacVPAXJpz9OTTG0E
+      oKMbgn6xmrntxZ7FN3ifmgg0+1YuWMQJDgZkW7w33PGfKGioVrCSo1yfu4iYCBsk
+      Haswha6vsC6eep3BwEIc4gLw6uBK0u+QDrTBQBbwb4VCSmT3pDCg/r8uoydajotY
+      uK3DGReEY+1vVv2Dy2A0xHS+5p3b4eTlygxfFQIDAQABo4IBbjCCAWowHwYDVR0j
+      BBgwFoAUU3m/WqorSs9UgOHYm8Cd8rIDZsswHQYDVR0OBBYEFI2MXsRUrYrhd+mb
+      +ZsF4bgBjWHhMA4GA1UdDwEB/wQEAwIBhjASBgNVHRMBAf8ECDAGAQH/AgEAMB0G
+      A1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAbBgNVHSAEFDASMAYGBFUdIAAw
+      CAYGZ4EMAQIBMFAGA1UdHwRJMEcwRaBDoEGGP2h0dHA6Ly9jcmwudXNlcnRydXN0
+      LmNvbS9VU0VSVHJ1c3RSU0FDZXJ0aWZpY2F0aW9uQXV0aG9yaXR5LmNybDB2Bggr
+      BgEFBQcBAQRqMGgwPwYIKwYBBQUHMAKGM2h0dHA6Ly9jcnQudXNlcnRydXN0LmNv
+      bS9VU0VSVHJ1c3RSU0FBZGRUcnVzdENBLmNydDAlBggrBgEFBQcwAYYZaHR0cDov
+      L29jc3AudXNlcnRydXN0LmNvbTANBgkqhkiG9w0BAQwFAAOCAgEAMr9hvQ5Iw0/H
+      ukdN+Jx4GQHcEx2Ab/zDcLRSmjEzmldS+zGea6TvVKqJjUAXaPgREHzSyrHxVYbH
+      7rM2kYb2OVG/Rr8PoLq0935JxCo2F57kaDl6r5ROVm+yezu/Coa9zcV3HAO4OLGi
+      H19+24rcRki2aArPsrW04jTkZ6k4Zgle0rj8nSg6F0AnwnJOKf0hPHzPE/uWLMUx
+      RP0T7dWbqWlod3zu4f+k+TY4CFM5ooQ0nBnzvg6s1SQ36yOoeNDT5++SR2RiOSLv
+      xvcRviKFxmZEJCaOEDKNyJOuB56DPi/Z+fVGjmO+wea03KbNIaiGCpXZLoUmGv38
+      sbZXQm2V0TP2ORQGgkE49Y9Y3IBbpNV9lXj9p5v//cWoaasm56ekBYdbqbe4oyAL
+      l6lFhd2zi+WJN44pDfwGF/Y4QA5C5BIG+3vzxhFoYt/jmPQT2BVPi7Fp2RBgvGQq
+      6jG35LWjOhSbJuMLe/0CjraZwTiXWTb2qHSihrZe68Zk6s+go/lunrotEbaGmAhY
+      LcmsJWTyXnW0OMGuf1pGg+pRyrbxmRE1a6Vqe8YAsOf4vmSyrcjC8azjUeqkk+B5
+      yOGBQMkKW+ESPMFgKuOXwIlCypTPRpgSabuY0MLTDXJLR27lk8QyKGOHQ+SwMj4K
+      00u/I5sUKUErmgQfky3xxzlIPK1aEn8=
+      -----END CERTIFICATE-----
+
+    key: |
+      -----BEGIN RSA PRIVATE KEY-----
+      MIIEpAIBAAKCAQEAt3zUPniInmIQFRAvr6FWuh3ht9lpr6jmlrOwvWFrb1SYvcTj
+      5jejn2oePJKCTEAJAufCe3VisjrU7Mxwns076267NimYHxuwI0H8Nm3+T84arIIB
+      6Gi+g41AdusWqxL89HWzdLzAMmwMpO2lWBBIzC3GDLxx0XvBCASddR5X6iBHETGI
+      /SiED+2vfb3CMD1b72OxFlz3rKwJLKoEw1qJOgF1+9MMdryTv+Tur8RbgXUZrdzE
+      /RiFwiJhTYixphkTvrXc3qoNEPnTruBLH3opabKKwDSEoepyftmiOZ8uhqZBCitC
+      kPp3HoLquftCAO08ftF7YjKfBHIN4gGZLGM5cQIDAQABAoIBAQCJQVeDY6bO04w0
+      NWd2ebnmf3PZk0j7ndzf3orXH4i+PwoC6sWP8Q70sOztYqsVXtFe2v8gWy75JAkj
+      Gcsk/2FTPAHPAk5I9u1LcpC4Jo+WIxbQ9G946uGYhpEyY6kRT6LpOyKCsK8VCL5s
+      oViOB6BtG9CKtmxtx6Ud2lXuxkP9XeFneTK56Sx9Q8zS9ts5kS0Mj+diTCSkY05/
+      uB2MviHNOkX9w/GZo42LAZ1IlSikaSXYi6RF2sp2sGX3efnFKfjHuwemGe269Lti
+      B1Ix+esMBCgxA/FqDNTTTJn2g6bN36TLTVsRbi1R3bWjCXiLTqvKSUtojE0EqCc1
+      sop5wkYBAoGBAPMY93U12/xacAhY0TI7UepQoI/zS6Y5gi62GUQlKvMmc6a6utMB
+      lTCXxgGyoDs14oSZi//0qvN7KfK5tGJ+Z2MZUrbumoZdzBOZE0vdVv2zkZlYUZ62
+      F7MRWTjSqknrax/8Xd4YGCDAOOg+8NhVy4GAEe4iQ/IoekUkO3LnrAiLAoGBAME5
+      7RLX3QoujfnoaftRQyNC30P3WiNpGIsS8C6LqP5J4e21WHp5DciC8e6bSk1yP0/j
+      7ofIRAuAevS4FzoazsbHNJ0TT5b3grBCPFkxsroNG/3T8BYj+oYccyQ0q+Is6PwR
+      N3gHinLGgMeoKa8TCAsS24L2ni/HTceVM27ku4lzAoGAOUHMJyNEaS+z64Nf4oDu
+      Tk4nQ0B+tOweqXnigZZvg02vN7oLft+EkClvTb8Q1mFetPSlcOfjy+1ad/0da4Vy
+      PHkebk/MvZEiHAuV6+x6LM86n++ZadRhyJ9xcFzOFxMH7ES4pzLtm+kqfik0+P9c
+      K2hK0NfpQQQfqGFcTzgZ4PkCgYAT+B2VJfP1GmyX2Doju/k5Sq7yQjzxjen4bYOe
+      +9YCObZ8r5IuThZrk4TXSPs718PNSNwc8kh9+9A5PFFCMwUNrAa2+QjvrDK4bo/4
+      E9fJvJMY/28/ioZYl9YadssQu910N39JC1Z2mCc0+x8btdbN9ivzc/NTMsDKEJRZ
+      MJBlGwKBgQCgQ5Wedovb1MKPWTMSpbSyTikVnNNLrneO4HtP4QC/ckC4fdplR8A3
+      JF4P51vaTDUMs/4vWoXc6Xru52TYNDFl+4OGyQUdLlhFL1CKYuB02bcoxsnuwTpN
+      jkMFeocrgf8jyO384C8B41q9fx9G28IUI+ALQhL6pDsIzJvxgBt5cA==
+      -----END RSA PRIVATE KEY-----
+
+    snis:
+      - appqa.banyancloud.io
+
+services:
+  - name: bc-download
+    url: https://appqa.banyancloud.io:31432/bcdl
+#    url: http://appqa.banyancloud.io:31432
+    routes:
+      - name: Version-1
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1
+          - /compliancy-report
+        strip_path: false
+      - name: Version-2
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v2
+          - /bc-download/api/v1/demo-api
+        strip_path: false
+      - name: Executive-PDF-Report-Local
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - ~/bc-download/(.*)
+
+        strip_path: false
+    plugins:
+        - name: basic-auth
+        #  consumer: bc-sujay
+        #  service: bc-download
+          config:
+            hide_credentials: true
+
+#        - name: cors
+#          config:
+#            origins:
+#              - https://appqa.banyancloud.io/
+#            methods:
+#              - GET
+#              - POST
+#            headers:
+#              - Accept
+#              - Accept-Version
+#              - Content-Length
+#              - Content-MD5
+#              - Content-Type
+#              - Date
+#              - X-Auth-Token
+#            exposed_headers:
+#              - X-Auth-Token
+#            credentials: true
+#            max_age: 3600
+
+        - name: rate-limiting
+          config:
+            second: 5
+            hour: 10000
+            policy: local
+
+        - name: response-ratelimiting
+          config:
+            limits:
+              requests_per_minute:
+                minute: 10
+            policy: local
+
+  - name: bc-collector-service
+    url: https://appqa.banyancloud.io:31432/bcol/api/v1/flat-file-upload-api
+
+    connect_timeout: 300000  #5 min
+    read_timeout: 300000     #5 min
+    write_timeout: 300000    #5 min
+
+    routes:
+      - name: Upload-Api
+        service: bc-collector-service
+        hosts:
+          - appqa.banyancloud.io
+        paths:
+          - /api/v1/s3-upload
+        strip_path: true
+
+  - name: kube-collector-service
+    url: https://appqa.banyancloud.io:31432/kubec
+    routes:
+      - name: K8S-Queue-Col-Get-Api
+        service: kube-collector-service
+        hosts:
+          - appqa.banyancloud.io
+        paths:
+          - /api/v1/lmos-queue-collection-data-by-master-id
+        strip_path: false
+
+  - name: oracle-collector-service
+    url: https://appqa.banyancloud.io:31432/dcoracle/api/v1/master-queue-objects
+    routes:
+      - name: Oracle-Queue-Col-Get-Api
+        service: oracle-collector-service
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1/oracle/list-lmos-event
+        strip_path: true
+
+  - name: pgsql-collector-service
+    url: https://appqa.banyancloud.io:31432/dcpgsql/api/v1/master-queue-objects
+    routes:
+      - name: PgSQL-Queue-Col-Get-Api
+        service: pgsql-collector-service
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1/pgsql/list-lmos-event
+        strip_path: true
+
+  - name: mssql-collector-service
+    url: https://appqa.banyancloud.io:31432/dcmssql/api/v1/master-queue-objects
+    routes:
+      - name: MSSQL-Queue-Col-Get-Api
+        service: mssql-collector-service
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1/mssql/list-lmos-event
+        strip_path: true
+
+  - name: mysql-collector-service
+    url: https://appqa.banyancloud.io:31432/dcmysql/api/v1/master-queue-objects
+    routes:
+      - name: MySQL-Queue-Col-Get-Api
+        service: mysql-collector-service
+        hosts:
+          - appqa.banyancloud.io:31432
+        paths:
+          - /api/v1/mysql/list-lmos-event
+        strip_path: true
+
+plugins:
+    - name: basic-auth
+#      consumer: bc-client
+      config:
+        hide_credentials: true
+
+    - name: cors
+      config:
+        origins:
+          - https://appqa.banyancloud.io/
+        methods:
+          - GET
+          - POST
+        headers:
+          - Accept
+          - Accept-Version
+          - Content-Length
+          - Content-MD5
+          - Content-Type
+          - Date
+          - X-Auth-Token
+        exposed_headers:
+          - X-Auth-Token
+        credentials: true
+        max_age: 3600
+
+    - name: rate-limiting
+      config:
+        second: 5
+        hour: 10000
+        policy: local
+
+    - name: response-ratelimiting
+      config:
+        limits:
+          requests_per_minute:
+            minute: 10
+        policy: local
+
+consumers:
+  - username: bc-sujay
+    basicauth_credentials:
+      - username: sujay
+        password: secret123
+  - username: bc-client
+    basicauth_credentials:
+      - username: Client
+        password: Client-Password-54321

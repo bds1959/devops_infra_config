@@ -78,7 +78,7 @@ services:
       - name: Upload-Api
         service: bc-collector-service
         hosts:
-          - appqa.banyancloud.io:31432
+          - appqa.banyancloud.io
         paths:
           - /api/v1/s3-upload
         strip_path: true
@@ -89,7 +89,7 @@ services:
       - name: K8S-Queue-Col-Get-Api
         service: kube-collector-service
         hosts:
-          - appqa.banyancloud.io:31432
+          - appqa.banyancloud.io
         paths:
           - /api/v1/lmos-queue-collection-data-by-master-id
         strip_path: false
