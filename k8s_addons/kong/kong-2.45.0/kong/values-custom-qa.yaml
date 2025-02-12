@@ -1,0 +1,47 @@
+# Disable the database (for DB-less mode)
+env:
+  database: "off"  # Ensures Kong runs in DB-less mode
+  declarative_config: /kong/declarative/kong.yml  # Location for the declarative config file
+
+# Disable Ingress Controller (if not needed)
+ingressController:
+  enabled: false  # If you don't need the Ingress Controller, keep this false
+
+# Configure the Proxy Service as LoadBalancer
+proxy:
+  type: LoadBalancer  # This sets the proxy service type as LoadBalancer
+
+#updated 23/01/25 
+dblessConfig:
+  configMap: "kong-declarative-config"  # Matches the ConfigMap defined in extraConfig.volumes
+  secret: ""
+  config: ""  # Ensure this remains empty to avoid conflicts with `configMap`
+
+# Declare Custom Volumes and VolumeMounts for Declarative Config
+custom:
+  enabled: true  # Enables the custom volume
+  volumes:
+    - name: kong-declarative-config  # Define volume for declarative config
+      mountPath: /kong/declarative  # Mount the volume at the specified path
+  volumeMounts:
+    - name: kong-declarative-config  # Reference the volume mount
+      mountPath: /kong/declarative  # Mount path where config will be available
+  extraConfig:
+    volumes:
+      - name: kong-declarative-config  # Additional volume definition for declarative config
+        configMap:
+          name: kong-declarative-config  # Reference the configMap with declarative config
+
+portal:
+  enabled: false  # Disable the portal
+  type: NodePort  # Retain NodePort for potential future use (can be omitted if you don't need it)
+  loadBalancerClass: ""
+  annotations: {}
+  labels: {}
+  ingress:
+    enabled: false  # Disable ingress exposure for the portal
+    ingressClassName: ""
+    hostname: "127.0.0.1:8444"
+    annotations: {}
+    path: /
+    pathType: ImplementationSpecific
