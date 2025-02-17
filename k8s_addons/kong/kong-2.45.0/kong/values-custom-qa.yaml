@@ -2,6 +2,9 @@
 env:
   database: "off"  # Ensures Kong runs in DB-less mode
   declarative_config: /kong/declarative/kong.yml  # Location for the declarative config file
+  ssl_cert: '/etc/secrets/kong-gateway-tls-secret/tls.crt'
+  ssl_cert_key: '/etc/secrets/kong-gateway-tls-secret/tls.key'
+  ssl: "on"
 
 # Disable Ingress Controller (if not needed)
 ingressController:
@@ -31,6 +34,9 @@ custom:
       - name: kong-declarative-config  # Additional volume definition for declarative config
         configMap:
           name: kong-declarative-config  # Reference the configMap with declarative config
+
+secretVolumes:
+  - kong-gateway-tls-secret
 
 portal:
   enabled: false  # Disable the portal
