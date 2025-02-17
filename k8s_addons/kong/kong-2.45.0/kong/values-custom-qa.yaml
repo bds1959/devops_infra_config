@@ -9,7 +9,7 @@ ingressController:
 
 # Configure the Proxy Service as LoadBalancer
 proxy:
-  type: LoadBalancer  # This sets the proxy service type as LoadBalancer
+  type: NodePort  # This sets the proxy service type as LoadBalancer
 
 #updated 23/01/25 
 dblessConfig:
