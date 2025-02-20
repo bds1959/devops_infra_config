@@ -1,12 +1,12 @@
+# efs-pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: neo4j-graphs-pvc
+  name: neo4j-efs-pvc
 spec:
   accessModes:
-  - ReadWriteMany
+    - ReadWriteMany
+  storageClassName: efs-sc
   resources:
     requests:
       storage: 5Gi
-  volumeName: neo4j-graphs-pv
-  storageClassName: manual
