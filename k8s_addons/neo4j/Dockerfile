@@ -1,9 +1,10 @@
 FROM neo4j:latest
 
+RUN apt-get update && apt-get install -y vim curl
 # Set the Neo4j password
-ENV NE04J_AUTH=none
+#ENV NEO4J_AUTH=none
 
-#ENV NE04J_AUTH=neo4j/banyancloud
+ENV NEO4J_AUTH="neo4j/bc_prod@803"
 
 # Copy any custom configuration files
 COPY neo4j.conf /var/lib/neo4j/conf/
