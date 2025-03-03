@@ -51,3 +51,17 @@ portal:
     annotations: {}
     path: /
     pathType: ImplementationSpecific
+
+image:
+  pullPolicy: IfNotPresent
+
+volumeKongMounts:
+  name: kong-logs
+  mountPath: /tmp
+
+sidecar:
+  imagelogs:
+    args: tail -n+1 -f /tmp/kong.log;
+  volumeMounts:
+    mountPath: /tmp
+

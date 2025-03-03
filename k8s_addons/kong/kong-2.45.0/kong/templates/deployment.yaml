@@ -289,6 +289,22 @@ spec:
         resources:
 {{ toYaml .Values.resources | indent 10 }}
         {{- end }} {{/* End of Kong container spec */}}
+      - name: sidecar-log
+        image: busybox:stable
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        args:
+        - /bin/sh
+        - -c
+        - >
+          i=0;
+          while true;
+          do
+            {{ .Values.sidecar.imagelogs.args }}
+          sleep 1;
+          done
+        volumeMounts:
+        - name: release-name-kong-tmp
+          mountPath: /tmp
     {{- if .Values.affinity }}
       affinity:
 {{ toYaml .Values.affinity | indent 8 }}
