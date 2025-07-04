@@ -378,7 +378,11 @@ schedulerName: ""
 imagePullSecrets: []
 nodeSelector:
   kubernetes.io/hostname: bcblrtkbnt13
-tolerations: []
+tolerations:
+ - key: "role"
+   operator: "Equal"
+   value: "openmetadata"
+   effect: "NoSchedule"
 
 # Enabling this will publically expose your OpenSearch instance.
 # Only enable this if you have security enabled on your cluster

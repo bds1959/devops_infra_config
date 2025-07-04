@@ -267,7 +267,12 @@ primary:
   ## @param primary.tolerations Tolerations for MySQL primary pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##
-  tolerations: []
+  tolerations:
+   - key: "role"
+     operator: "Equal"
+     value: "openmetadata"
+     effect: "NoSchedule"
+
   ## @param primary.priorityClassName MySQL primary pods' priorityClassName
   ##
   priorityClassName: ""
@@ -341,7 +346,7 @@ primary:
   ## @param primary.livenessProbe.successThreshold Success threshold for livenessProbe
   ##
   livenessProbe:
-    enabled: true
+    enabled: flase
     initialDelaySeconds: 5
     periodSeconds: 10
     timeoutSeconds: 1
@@ -357,7 +362,7 @@ primary:
   ## @param primary.readinessProbe.successThreshold Success threshold for readinessProbe
   ##
   readinessProbe:
-    enabled: true
+    enabled: false
     initialDelaySeconds: 5
     periodSeconds: 10
     timeoutSeconds: 1
@@ -373,7 +378,7 @@ primary:
   ## @param primary.startupProbe.successThreshold Success threshold for startupProbe
   ##
   startupProbe:
-    enabled: true
+    enabled: false
     initialDelaySeconds: 15
     periodSeconds: 10
     timeoutSeconds: 1
@@ -648,7 +653,11 @@ secondary:
   ## @param secondary.tolerations Tolerations for MySQL secondary pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##
-  tolerations: []
+  tolerations:
+   - key: "role"
+     operator: "Equal"
+     value: "openmetadata"
+     effect: "NoSchedule"
   ## @param secondary.priorityClassName MySQL secondary pods' priorityClassName
   ##
   priorityClassName: ""

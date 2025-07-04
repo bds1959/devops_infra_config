@@ -376,7 +376,11 @@ airflow:
     ## - spec for Toleration:
     ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
     ##
-    tolerations: []
+    tolerations:
+     - key: "role"
+       operator: "Equal"
+       value: "openmetadata"
+       effect: "NoSchedule"
 
     ## the topologySpreadConstraints configs for the Pod template
     ## - docs for topologySpreadConstraints:
@@ -475,7 +479,11 @@ airflow:
     ## - spec for Toleration:
     ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
     ##
-    tolerations: []
+    tolerations:
+     - key: "role"
+       operator: "Equal"
+       value: "openmetadata"
+       effect: "NoSchedule"
 
     ## the topologySpreadConstraints configs for the db-migrations Pods
     ## - docs for topologySpreadConstraints:
@@ -543,7 +551,11 @@ airflow:
     ## - spec for Toleration:
     ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
     ##
-    tolerations: []
+    tolerations:
+     - key: "role"
+       operator: "Equal"
+       value: "openmetadata"
+       effect: "NoSchedule"
 
     ## the topologySpreadConstraints configs for the sync Pods
     ## - docs for topologySpreadConstraints:
@@ -609,7 +621,11 @@ scheduler:
   ## - spec of Toleration:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
   ##
-  tolerations: []
+  tolerations:
+   - key: "role"
+     operator: "Equal"
+     value: "openmetadata"
+     effect: "NoSchedule"
 
   ## the topologySpreadConstraints configs for the scheduler Pods
   ## - docs for topologySpreadConstraints:
@@ -821,7 +837,11 @@ web:
   ## - spec for Toleration:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
   ##
-  tolerations: []
+  tolerations:
+   - key: "role"
+     operator: "Equal"
+     value: "openmetadata"
+     effect: "NoSchedule"
 
   ## the topologySpreadConstraints configs for the web Pods
   ## - docs for topologySpreadConstraints:
@@ -976,7 +996,11 @@ workers:
   ## - spec for Toleration:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
   ##
-  tolerations: []
+  tolerations:
+   - key: "role"
+     operator: "Equal"
+     value: "openmetadata"
+     effect: "NoSchedule"
 
   ## the topologySpreadConstraints configs for the worker Pods
   ## - docs for topologySpreadConstraints:
@@ -1186,7 +1210,11 @@ triggerer:
   ## - spec for Toleration:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
   ##
-  tolerations: []
+  tolerations:
+   - key: "role"
+     operator: "Equal"
+     value: "openmetadata"
+     effect: "NoSchedule"
 
   ## the topologySpreadConstraints configs for the triggerer Pods
   ## - docs for topologySpreadConstraints:
@@ -1322,7 +1350,11 @@ flower:
   ## - spec for Toleration:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
   ##
-  tolerations: []
+  tolerations:
+   - key: "role"
+     operator: "Equal"
+     value: "openmetadata"
+     effect: "NoSchedule"
 
   ## the topologySpreadConstraints configs for the flower Pods
   ## - docs for topologySpreadConstraints:
@@ -1906,7 +1938,11 @@ pgbouncer:
   ## - spec for Toleration:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
   ##
-  tolerations: []
+  tolerations:
+   - key: "role"
+     operator: "Equal"
+     value: "openmetadata"
+     effect: "NoSchedule"
 
   ## the topologySpreadConstraints configs for the pgbouncer Pods
   ## - docs for topologySpreadConstraints:
@@ -2147,7 +2183,11 @@ postgresql:
     ## - spec for Toleration:
     ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
     ##
-    tolerations: []
+    tolerations:
+     - key: "role"
+       operator: "Equal"
+       value: "openmetadata"
+       effect: "NoSchedule"
 
     ## annotations for the postgres Pods
     ##
@@ -2278,7 +2318,11 @@ redis:
     ## - spec for Toleration:
     ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
     ##
-    tolerations: []
+    tolerations:
+     - key: "role"
+       operator: "Equal"
+       value: "openmetadata"
+       effect: "NoSchedule"
 
     ## annotations for the redis master Pods
     ##
@@ -2332,7 +2376,11 @@ redis:
     ## - spec for Toleration:
     ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#toleration-v1-core
     ##
-    tolerations: []
+    tolerations:
+     - key: "role"
+       operator: "Equal"
+       value: "openmetadata"
+       effect: "NoSchedule"
 
     ## annotations for the slave Pods
     ##
