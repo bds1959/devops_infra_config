@@ -1,5 +1,5 @@
 resource "aws_launch_template" "eks_launch_template" {
-  name = "bceksprd1_EKS_Custom_Launch_Template"
+  name = "bceksprd1_EKS_Custom_Launch_Template_27Nov25"
 
   image_id          = var.eks_optimized_image_id
   instance_type     = "t3.medium"  # Replace with your desired instance type

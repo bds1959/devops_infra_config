@@ -31,11 +31,11 @@ variable "max_pods" {
 variable "ami_id" {
   description = "The AMI ID for the EKS-optimized AMI"
   type        = string
-  default     = "ami-0bcdfb9a5f7c055fd"
+  default     = "ami-068f2aac22ac3b2d4"
 }
 
 variable "eks_optimized_image_id" {
-  default = "ami-0bcdfb9a5f7c055fd"
+  default = "ami-068f2aac22ac3b2d4"
 }
 
 variable "node_role_arn" {

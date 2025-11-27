@@ -1,6 +1,6 @@
 resource "aws_security_group" "eks_custom_sg" {
-  name        = "bceksprd1_EKS_SG_Custom_Launch_Template"
-  description = "bceksprd1 EKS cluster custom launch template"
+  name        = "bceksprd1_EKS_SG_Custom_Launch_Template_27Nov25"
+  description = "bceksprd1 EKS cluster custom launch template 27Nov25"
   vpc_id      = var.vpc_id
 
   tags = {
