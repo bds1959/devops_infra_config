@@ -1,0 +1,13 @@
+---
+apiVersion: node.eks.aws/v1alpha1
+kind: NodeConfig
+spec:
+  cluster:
+    name: ${cluster_name}
+    apiServerEndpoint: ${api_server}
+    certificateAuthority: ${certificate_authority}
+    cidr: ${service_cidr}
+  kubelet:
+    flags:
+      - --max-pods=${max_pods}
+      # Add more if needed, e.g., - --node-labels=node.kubernetes.io/scope=system

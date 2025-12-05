@@ -44,3 +44,13 @@ resource "aws_security_group_rule" "allow_ssh" {
   security_group_id = aws_security_group.eks_custom_sg.id
 }
 
+# In main.tf, after aws_security_group.eks_custom_sg
+resource "aws_security_group_rule" "outbound_aws_apis" {
+  type              = "egress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  security_group_id = aws_security_group.eks_custom_sg.id
+  cidr_blocks       = ["0.0.0.0/0"]  # Or restrict to AWS ranges
+  description       = "Outbound HTTPS to AWS services (EC2/STS)"
+}

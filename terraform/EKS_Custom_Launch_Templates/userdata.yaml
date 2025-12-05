@@ -1,0 +1,21 @@
+#!/bin/bash
+set -ex
+
+# Write nodeadm config
+mkdir -p /etc/nodeadm
+cat > /etc/nodeadm/config.yaml <<EOF
+apiVersion: node.eks.aws/v1alpha1
+kind: NodeConfig
+spec:
+  cluster:
+    name: ${cluster_name}
+    apiServerEndpoint: ${api_server}
+    certificateAuthority: ${certificate_authority}
+    cidr: ${service_cidr}
+  kubelet:
+    flags:
+      - --max-pods=${max_pods}
+EOF
+
+# Run nodeadm to join the EKS cluster
+nodeadm init --config-source file:///etc/nodeadm/config.yaml

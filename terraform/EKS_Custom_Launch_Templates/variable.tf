@@ -64,3 +64,15 @@ variable "kms_key_id" {
   type        = string
   default     = "arn:aws:kms:us-east-2:100969885024:key/186a7f6d-959b-4c30-8d30-5b353aa1ea9f"
 }
+
+variable "service_cidr" {
+  description = "EKS service IPv4 CIDR"
+  type        = string
+  default     = "172.20.0.0/16"
+}
+
+variable "cluster_version" {
+  description = "EKS cluster Kubernetes version"
+  type        = string
+  default     = "1.31"  # Adjust to your version, e.g., 1.33
+}
