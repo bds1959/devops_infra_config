@@ -1,0 +1,10 @@
+apiVersion: cilium.io/v2alpha1
+kind: CiliumGatewayClassConfig
+metadata:
+  name: nodeport-config
+  namespace: kube-system
+spec:
+  service:
+    type: NodePort
+    externalTrafficPolicy: Cluster
+    loadBalancerSourceRangesPolicy: Allow

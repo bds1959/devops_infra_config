@@ -1,0 +1,5 @@
+gatewayAPI:
+  hostNetwork:
+    enabled: false
+    nodes:
+      matchLabels: {}

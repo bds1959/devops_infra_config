@@ -1,0 +1,11 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: trace-file-access
+  namespace: kube-system
+spec:
+  kprobes:
+    - call: "security_file_permission"
+      selectors:
+        - matchNamespaces:
+            - namespace: "default"

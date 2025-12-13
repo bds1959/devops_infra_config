@@ -1,0 +1,17 @@
+routingMode: tunnel
+tunnelProtocol: vxlan
+tunnelPort: 8473
+
+cni:
+  customConf: true
+  uninstall: false
+
+ipam:
+  mode: "cluster-pool"
+  operator:
+    clusterPoolIPv4PodCIDRList: ["10.200.0.0/16"]
+
+policyEnforcementMode: "never"
+
+bpf:
+  hostLegacyRouting: true

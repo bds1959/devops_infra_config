@@ -1,0 +1,15 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: trace-db-connections
+  namespace: kube-system
+spec:
+  socketFilter:
+    - level: 4          # L4 events
+      direction: Egress
+      selectors:
+        - matchNamespaces:
+            - namespace: "default"
+        - port:
+            - operator: "Equal"
+              values: ["5432"]

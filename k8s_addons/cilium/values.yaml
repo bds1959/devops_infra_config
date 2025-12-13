@@ -1,0 +1,5 @@
+gatewayAPI:
+  enabled: true
+  enableGatewayHostPort: true
+  xdp:
+    enabled: false
