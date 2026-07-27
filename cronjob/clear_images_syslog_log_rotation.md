@@ -15,11 +15,14 @@ sudo vi /etc/logrotate.d/container-logs
 Add the following configuration. Uncomment **only one** log path based on your environment.
 
 ```conf
+#Pod
+/var/lib/pods/*/*.log
+
 # Docker
 #/var/lib/docker/containers/*/*.log
 
 # Docker (newer versions using embedded containerd)
-/var/lib/docker/containerd/containers/*/*.log
+#/var/lib/docker/containerd/containers/*/*.log
 
 # Standalone containerd
 #/var/lib/containerd/containers/*/*.log
