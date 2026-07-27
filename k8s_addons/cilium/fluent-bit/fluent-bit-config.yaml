@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit
+  namespace: logging
+data:
+
+  fluent-bit.conf: |
+    [SERVICE]
+        Flush                5
+        Log_Level            info
+        Parsers_File         parsers.conf
+
+    [INPUT]
+        Name                tail
+        Path                /var/log/containers/*tetragon*.log
+        Parser              cri
+        Tag                 kube.tetragon.*
+        Refresh_Interval    5
+        Rotate_Wait         30
+        Mem_Buf_Limit       50MB
+        Skip_Long_Lines     On
+        DB                  /fluent-bit/tetragon.db
+        DB.Sync             Normal
+
+    [FILTER]
+        Name                kubernetes
+        Match               kube.*
+        #tetragon.*
+        Kube_Tag_Prefix     kube.var.log.containers.
+        Merge_Log           On
+        #default On
+        Keep_Log            Off
+        #defalt Off
+        K8S-Logging.Parser  On
+
+    # Parse Tetragon JSON inside the log field
+    #    [FILTER]
+    #        Name                parser
+    #        Match               kube.tetragon.*
+    #        Key_Name            message
+    #        Parser              json
+    #        Reserve_Data        On
+    #        Preserve_Key        On
+
+    [OUTPUT]
+        Name                es
+        Match               kube.tetragon.*
+        Host                172.16.1.228
+        Port                9200
+        HTTP_User           elastic
+        HTTP_Passwd         dhn81j8bKd6ifd6q3K85
+        Index               tetragon-security
+        Logstash_Format     Off
+        Retry_Limit         False
+        Replace_Dots        On
+        Suppress_Type_Name  On
+        #        Time_Key            @timestamp
+
+  parsers.conf: |
+    # CRI log format (containerd)
+    [PARSER]
+        Name        cri
+        Format      regex
+        Regex       ^(?<time>[^ ]+) (?<stream>stdout|stderr) (?<logtag>[^ ]*) (?<log>.*)$
+        Time_Key    time
+        Time_Format %Y-%m-%dT%H:%M:%S.%L%z
+
+    # Tetragon JSON event parser
+    #    [PARSER]
+    #        Name        json
+    #        Format      json
+    #        Time_Key    time
+    #        Time_Format %Y-%m-%dT%H:%M:%S.%L%z
+    #        Time_Keep   On
+

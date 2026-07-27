@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: xwing
+spec:
+  selector:
+    app: xwing
+  ports:
+    - port: 80
+      targetPort: 80
+  type: NodePort

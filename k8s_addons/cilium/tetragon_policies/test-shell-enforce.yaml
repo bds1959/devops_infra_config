@@ -1,0 +1,27 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: detect-package-manager-enforce
+spec:
+  kprobes:
+  - call: sys_execve
+    syscall: true
+    return: false
+    args:
+    - index: 0
+      type: string
+
+    selectors:
+    - matchBinaries:
+      - operator: Prefix
+        values:
+        - /usr/bin/apt
+        - /usr/bin/apt-
+        - /usr/bin/dpkg
+        - /usr/bin/yum
+        - /usr/bin/dnf
+        - /sbin/apk
+        - /bin/apk
+
+      matchActions:
+      - action: Sigkill

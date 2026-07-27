@@ -1,0 +1,25 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: pod-exec-bin-bash-kill
+spec:
+  # Limit this policy to specific pods to avoid killing host processes
+  podSelector:
+    matchLabels:
+      app: my-secure-app
+  kprobes:
+  - call: "sys_execve"
+    syscall: true
+    args:
+    - index: 0
+      type: "string"
+    selectors:
+    - matchArgs:
+      - index: 0
+        operator: "Equal"
+        values:
+        - "/bin/bash" 
+        - "/usr/bin/bash" # Cover the symlink variation
+      matchActions:
+      - action: Sigkill
+      - action: Post

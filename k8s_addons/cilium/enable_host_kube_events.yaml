@@ -1,0 +1,27 @@
+# values.yaml — complete recommended config
+tetragon:
+  hostPID: true
+  hostNetwork: true
+
+  # These unlock host + k8s component visibility
+  enableProcessCred: true      # captures uid/gid/capabilities per process
+  enableProcessNs: true        # captures Linux namespace IDs (PID ns, net ns, etc.)
+  enableK8sAPI: true           # enriches events with pod/namespace labels
+
+  # Required for eBPF to load properly on the host kernel
+  securityContext:
+    privileged: true
+
+  # Don't restrict to only container cgroups
+  cgroupRate:
+    enabled: false             # disable cgroup-only filtering if set
+
+  export:
+    stdout:
+      enabledEventTypes:
+        - PROCESS_EXEC
+        - PROCESS_EXIT
+        - PROCESS_KPROBE
+        - PROCESS_TRACEPOINT
+      # Remove any allowList that restricts to specific namespaces
+      denyList: []

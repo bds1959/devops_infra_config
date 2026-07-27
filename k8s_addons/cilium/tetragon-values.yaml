@@ -1,0 +1,9 @@
+tetragon:
+  grpc:
+    enabled: true
+    address: "0.0.0.0:54321"
+
+export:
+  mode: grpc
+  grpc:
+    address: 172.16.1.229:4317   # Your OTEL collector

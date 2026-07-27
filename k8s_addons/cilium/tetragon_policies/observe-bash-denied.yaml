@@ -1,0 +1,23 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: observe-bash-denied
+spec:
+  kprobes:
+  - call: "sys_execve"
+    syscall: true
+    return: true
+
+    args:
+    - index: 0
+      type: string
+
+    selectors:
+    - matchArgs:
+      - index: 0
+        operator: Equal
+        values:
+        - "/bin/bash"
+
+      matchActions:
+      - action: Post

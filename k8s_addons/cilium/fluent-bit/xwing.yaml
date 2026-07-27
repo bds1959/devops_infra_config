@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xwing
+  labels:
+    app: xwing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xwing
+  template:
+    metadata:
+      labels:
+        app: xwing
+    spec:
+      containers:
+      - name: xwing
+        image: docker.io/bfsmith/xwing
+        ports:
+        - containerPort: 80

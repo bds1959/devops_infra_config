@@ -1,0 +1,41 @@
+---
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: detect-package-manager-enforce
+spec:
+  kprobes:
+  - call: sys_execve
+    syscall: true
+    selectors:
+    - matchBinaries:
+      - operator: In
+        values:
+          - /usr/bin/apt
+          - /usr/bin/apt-get
+          - /usr/bin/dpkg
+          - /usr/bin/yum
+          - /usr/bin/dnf
+          - /sbin/apk
+#          - /usr/bin/sudo
+      matchActions:
+      - action: Sigkill
+---
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: detect-curl-wget-enforce
+spec:
+  kprobes:
+  - call: sys_execve
+    syscall: true
+    selectors:
+    - matchBinaries:
+      - operator: In
+        values:
+          - /usr/bin/curl
+          - /bin/curl
+          - /usr/bin/wget
+          - /bin/wget
+      matchActions:
+      - action: Sigkill
